@@ -25,8 +25,8 @@ dependencies {
     implementation 'org.hibernate:hibernate-entitymanager'
     //lombok
     compileOnly 'org.projectlombok:lombok'
-    //h2 database
-    runtimeOnly 'com.h2database:h2'
+    //my database
+    runtimeOnly 'mysql:mysql-connector-java'
 
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
