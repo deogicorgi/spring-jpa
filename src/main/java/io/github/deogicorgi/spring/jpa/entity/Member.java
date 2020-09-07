@@ -11,13 +11,13 @@ import javax.persistence.Table;
 @Getter
 @Setter
 @Entity
-@Table(name = "`MEMBER`", catalog = "`jpa`")
+@Table(name = "member")
 public class Member {
     @Id
-    @Column(name = "ID")
+    @Column(name = "id")
     private String id;
 
-    @Column(name = "NAME")
+    @Column(name = "name")
     private String username;
     private Integer age;
 }

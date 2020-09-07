@@ -1,23 +1,20 @@
-package io.github.deogicorgi.spring.jpa.repository;
+package io.github.deogicorgi.spring.jpa.service;
 
 import io.github.deogicorgi.spring.jpa.entity.Member;
-import io.github.deogicorgi.spring.jpa.service.MemberService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.context.SpringBootTest;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
-@DataJpaTest
-@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-class MemberRepositoryTest {
+@SpringBootTest
+class MemberServiceTest {
 
     @Autowired
     MemberService memberService;
 
     @Test
-    void memberSaveTest(){
+    void save(){
         Member member = new Member();
         member.setId("강원덕");
         member.setUsername("kangwding");
@@ -28,5 +25,4 @@ class MemberRepositoryTest {
         assertEquals("강원덕", save.getId());
         assertEquals("kangwding", save.getUsername());
     }
-
 }
