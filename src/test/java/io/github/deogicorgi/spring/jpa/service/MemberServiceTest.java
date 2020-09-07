@@ -16,13 +16,14 @@ class MemberServiceTest {
     @Test
     void save(){
         Member member = new Member();
-        member.setId("강원덕");
-        member.setUsername("kangwding");
+        member.setId("deogicorgi");
+        member.setUsername("더기코기");
         member.setAge(33);
 
         Member save = memberService.save(member);
 
-        assertEquals("강원덕", save.getId());
-        assertEquals("kangwding", save.getUsername());
+        assertEquals("deogicorgi", save.getId());
+        assertEquals("더기코기", save.getUsername());
+        assertEquals(33, save.getAge());
     }
 }

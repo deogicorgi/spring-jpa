@@ -7,7 +7,6 @@ spring:
     url: jdbc:mysql://localhost:3306/jpa?serverTimezone=UTC&characterEncoding=UTF-8
     username: deogicorgi
     password: 1234
-
   jpa:
     database-platform: org.hibernate.dialect.MySQL5Dialect
     show-sql: true
@@ -15,3 +14,6 @@ spring:
       format_sql: true
     generate-ddl: true
 #        ddl-auto: create
+#  test :
+#    database :
+#      replace : NONE
