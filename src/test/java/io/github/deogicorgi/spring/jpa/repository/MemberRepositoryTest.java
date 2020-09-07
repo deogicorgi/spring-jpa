@@ -21,6 +21,27 @@ class MemberRepositoryTest {
     @Test
     @DisplayName("Member Save Test")
     void memberSaveTest(){
+
+        // given
+        Member member = new Member();
+        member.setId("deogicorgi");
+        member.setUsername("더기코기");
+        member.setAge(33);
+
+        // when
+        Member save = memberRepository.save(member);
+
+        // then
+        assertEquals("deogicorgi", save.getId());
+        assertEquals("더기코기", save.getUsername());
+        assertEquals(33, save.getAge());
+    }
+
+    @Test
+    @DisplayName("Member Update Test")
+    void memberUpdateTest(){
+
+        // given
         Member member = new Member();
         member.setId("deogicorgi");
         member.setUsername("더기코기");
@@ -28,9 +49,16 @@ class MemberRepositoryTest {
 
         Member save = memberRepository.save(member);
 
+        // when
+        save.setUsername("더기코기2");
+        save.setAge(34);
+
+        Member updated = memberRepository.save(save);
+
+        // then
         assertEquals("deogicorgi", save.getId());
-        assertEquals("더기코기", save.getUsername());
-        assertEquals(33, save.getAge());
+        assertEquals("더기코기2", save.getUsername());
+        assertEquals(34, save.getAge());
     }
 
 }
