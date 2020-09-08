@@ -1,6 +1,7 @@
 package io.github.deogicorgi.spring.jpa.repository;
 
 import io.github.deogicorgi.spring.jpa.entity.Member;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,9 +19,24 @@ class MemberRepositoryTest {
     @Autowired
     MemberRepository memberRepository;
 
+    @BeforeEach
+    void setup() {
+
+        System.out.println("test setup!!!");
+        for (int i = 0; i < 10; i++){
+            Member member = new Member();
+            member.setId("deogicorgi" + i);
+            member.setUsername("더기코" + i);
+            member.setAge(i + 10);
+
+            memberRepository.save(member);
+        }
+        System.out.println("test setup ended!!!!");
+    }
+
     @Test
     @DisplayName("Member Save Test")
-    void memberSaveTest(){
+    void memberSaveTest() {
 
         // given
         Member member = new Member();
@@ -39,26 +55,21 @@ class MemberRepositoryTest {
 
     @Test
     @DisplayName("Member Update Test")
-    void memberUpdateTest(){
+    void memberUpdateTest() {
 
         // given
-        Member member = new Member();
-        member.setId("deogicorgi");
-        member.setUsername("더기코기");
-        member.setAge(33);
-
-        Member save = memberRepository.save(member);
+        Member find = memberRepository.findById("deogicorgi0").get();
 
         // when
-        save.setUsername("더기코기2");
-        save.setAge(34);
+        find.setUsername("더기코기2");
+        find.setAge(34);
 
-        Member updated = memberRepository.save(save);
+        Member updated = memberRepository.save(find);
 
         // then
-        assertEquals("deogicorgi", save.getId());
-        assertEquals("더기코기2", save.getUsername());
-        assertEquals(34, save.getAge());
+        assertEquals("deogicorgi0", updated.getId());
+        assertEquals("더기코기2", updated.getUsername());
+        assertEquals(34, updated.getAge());
     }
 
 }
