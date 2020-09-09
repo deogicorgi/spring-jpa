@@ -6,17 +6,14 @@ import lombok.ToString;
 
 import javax.persistence.*;
 
+@Entity
 @Getter
 @Setter
 @ToString
-@Entity
-@Table(name = "member")
-public class Member {
+@Table(name = "team")
+public class Team {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String name;
-    @ManyToOne
-    @JoinColumn(name = "team_id", nullable = false)
-    private Team team;
 }
