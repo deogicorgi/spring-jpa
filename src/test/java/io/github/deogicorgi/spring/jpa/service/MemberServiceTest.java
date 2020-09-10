@@ -26,5 +26,4 @@ class MemberServiceTest {
 
         System.out.println(member);
     }
-
 }
