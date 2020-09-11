@@ -1,20 +1,20 @@
 package io.github.deogicorgi.spring.jpa.entity;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
 
 import javax.persistence.*;
 
+@Data
 @Entity
-@Getter
-@Setter
-@ToString
 @Table(name = "team")
 public class Team {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private Long id;
 
     private String name;
+
+    @OneToMany
+    @JoinColumn(name = "company_id", nullable = false)
+    private Company company;
 }
