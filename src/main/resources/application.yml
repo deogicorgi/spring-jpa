@@ -4,15 +4,19 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/jpa?serverTimezone=UTC&characterEncoding=UTF-8
+    url: jdbc:mysql://192.168.0.7:3306/entertainment?serverTimezone=UTC&characterEncoding=UTF-8
     username: deogicorgi
-    password: 1234
+    password: deogicorgi1234
   jpa:
     database-platform: org.hibernate.dialect.MySQL5Dialect
     show-sql: true
     properties:
       hibernate :
         format_sql: true
+
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create
 #    generate-ddl: true
 #        ddl-auto: create
 #  test :

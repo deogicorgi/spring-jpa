@@ -9,12 +9,13 @@ import javax.persistence.*;
 @Table(name = "team")
 public class Team {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false, length = 100)
     private String name;
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name = "company_id", nullable = false)
     private Company company;
 }

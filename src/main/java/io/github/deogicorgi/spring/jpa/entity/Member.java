@@ -9,9 +9,12 @@ import javax.persistence.*;
 @Table(name = "member")
 public class Member {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(nullable = false, length = 100)
     private String name;
+
     @ManyToOne
     @JoinColumn(name = "team_id", nullable = false)
     private Team team;
