@@ -20,4 +20,8 @@ public class MemberService {
         Optional<Member> member = memberRepository.findById(id);
         return member.orElseThrow();
     }
+
+    public void remove(Member member){
+        memberRepository.delete(member);
+    }
 }
