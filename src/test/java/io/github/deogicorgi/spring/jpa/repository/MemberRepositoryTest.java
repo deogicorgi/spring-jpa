@@ -3,6 +3,8 @@ package io.github.deogicorgi.spring.jpa.repository;
 import io.github.deogicorgi.spring.jpa.entity.Company;
 import io.github.deogicorgi.spring.jpa.entity.Member;
 import io.github.deogicorgi.spring.jpa.entity.Team;
+import org.aspectj.lang.annotation.Before;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,9 +24,14 @@ class MemberRepositoryTest {
     @Autowired
     CompanyRepository companyRepository;
 
+    @BeforeAll
+    static void setup() {
+        System.out.println("setup");
+    }
+
     @Test
     @DisplayName("Member save test")
-    void save(){
+    void save() {
         Company company = new Company();
         company.setName("YG Entertainment");
         Company savedCompany = companyRepository.save(company);
@@ -42,4 +49,26 @@ class MemberRepositoryTest {
         System.out.println(savedMember);
 
     }
+
+    @Test
+    @DisplayName("Member save test2")
+    void save2() {
+        Company company = new Company();
+        company.setName("YG Entertainment");
+        Company savedCompany = companyRepository.save(company);
+
+        Team team = new Team();
+        team.setName("BlackPink");
+        team.setCompany(savedCompany);
+        Team savedTeam = teamRepository.save(team);
+
+        Member member = new Member();
+        member.setName("Jennie");
+        member.setTeam(savedTeam);
+
+        Member savedMember = memberRepository.save(member);
+        System.out.println(savedMember);
+
+    }
+
 }
