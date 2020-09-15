@@ -16,7 +16,7 @@ public class MemberService {
         return memberRepository.save(member);
     }
 
-    public Member findById(Integer id) {
+    public Member findById(Long id) {
         Optional<Member> member = memberRepository.findById(id);
         return member.orElseThrow();
     }

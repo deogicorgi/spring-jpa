@@ -10,14 +10,14 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 public class TeamService {
-    
+
     private final TeamRepository teamRepository;
 
     public Team save(Team team) {
         return teamRepository.save(team);
     }
 
-    public Team findById(Integer id) {
+    public Team findById(Long id) {
         Optional<Team> team = teamRepository.findById(id);
         return team.orElseThrow();
     }
