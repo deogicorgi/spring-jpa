@@ -64,6 +64,7 @@ public class Member {
     @Column(nullable = false, length = 3)
     @Convert(converter = BirthdayTypeEnumConverter.class)
     private BirthdayType birthdayType;
+
     /**
      * Member's team
      */
