@@ -6,6 +6,10 @@ import io.github.deogicorgi.spring.jpa.exception.EnumNotFoundException;
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
 
+/**
+ * Converter for converting the 'birthday_type' column of the database and the 'birthdayType' field of the entity.
+ * @see BirthdayType
+ */
 @Converter
 public class BirthdayTypeEnumConverter implements AttributeConverter<BirthdayType, Integer> {
 
@@ -22,7 +26,7 @@ public class BirthdayTypeEnumConverter implements AttributeConverter<BirthdayTyp
     /**
      * Convert the birthdaytype code of the database to the entity field.
      * @param databaseCode
-     * @return
+     * @return birthdaytype
      */
     @Override
     public BirthdayType convertToEntityAttribute(Integer databaseCode) {
