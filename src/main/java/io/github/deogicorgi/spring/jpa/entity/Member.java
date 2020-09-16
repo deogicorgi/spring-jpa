@@ -1,7 +1,9 @@
 package io.github.deogicorgi.spring.jpa.entity;
 
+import io.github.deogicorgi.spring.jpa.entity.enums.BirthdayType;
 import io.github.deogicorgi.spring.jpa.entity.enums.Gender;
 import io.github.deogicorgi.spring.jpa.entity.enums.converter.BirthdayConverter;
+import io.github.deogicorgi.spring.jpa.entity.enums.converter.BirthdayTypeEnumConverter;
 import io.github.deogicorgi.spring.jpa.entity.enums.converter.GenderEnumConverter;
 import lombok.Data;
 
@@ -56,6 +58,12 @@ public class Member {
     @Convert(converter = BirthdayConverter.class)
     private LocalDate birthday;
 
+    /**
+     * Birthday type of member. (solar calendar or lunar calendar)
+     */
+    @Column(nullable = false, length = 3)
+    @Convert(converter = BirthdayTypeEnumConverter.class)
+    private BirthdayType birthdayType;
     /**
      * Member's team
      */

@@ -1,12 +1,14 @@
 package io.github.deogicorgi.spring.jpa.entity.enums.converter;
 
 import javax.persistence.AttributeConverter;
+import javax.persistence.Converter;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 /**
  * Localdate fields and column converter.
  */
+@Converter
 public class BirthdayConverter implements AttributeConverter<LocalDate, String> {
 
     /**
