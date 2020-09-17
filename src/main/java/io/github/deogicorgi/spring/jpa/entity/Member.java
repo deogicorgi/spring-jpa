@@ -13,6 +13,7 @@ import java.time.LocalDate;
 /**
  * Class with main content for members
  */
+
 @Data
 @Entity
 @Table(name = "member")
