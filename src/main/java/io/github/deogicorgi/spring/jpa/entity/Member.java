@@ -72,4 +72,5 @@ public class Member {
     @ManyToOne
     @JoinColumn(name = "team_id", nullable = false)
     private Team team;
+    
 }
